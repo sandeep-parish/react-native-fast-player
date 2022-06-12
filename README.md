@@ -2,10 +2,9 @@
 
 #### A `<Video>` component for react-native.
 
-##### `NOTE: Currently this package supports for android platform only`
+##### `NOTE: Currently this package support for android platform`
 
 ## Installation
-
 Using npm:
 
 ```shell
@@ -21,7 +20,6 @@ yarn add react-native-fast-player
 Then follow the instructions for your platform to link react-native-fast-player into your project:
 
 ### Android installation
-
 Linking is not required in React Native 0.60 and above.
 If your project is using React Native < 0.60, run `react-native link react-native-fast-player` to link the react-native-video library.
 
@@ -37,7 +35,6 @@ project(':react-native-fast-player').projectDir = new File(rootProject.projectDi
 ```
 
 #### **MainApplication.java**
-
 If using com.facebook.react.PackageList to auto import native dependencies, there are no updates required here. Please see the android example project for more details.
 /examples/basic/android/app/src/main/java/com/videoplayer/MainApplication.java
 
@@ -60,28 +57,27 @@ protected List<ReactPackage> getPackages() {
     );
 }
 ```
-
 ## Usage
 
 ```javascript
 // Load the module
 
-import VideoPlayer from 'react-native-fast-player';
+import VideoPlayer,{RepeatMode, ResizeMode} from 'react-native-fast-player';
 
 // Within your render function, assuming you have a file called
 // "background.mp4" in your project. You can include multiple videos
 // on a single screen if you like.
 
-<VideoPlayer
-  style={{ width: 320, height: 200 }}
-  play={true}
-  uri="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-  controls
-/>;
+ <VideoPlayer
+        style={{width:320, height:200}}
+        play={true}
+        uri="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        resizeMode={ResizeMode.RESIZE_MODE_FIT}
+        repeatMode={RepeatMode.REPEAT_MODE_ONE}
+      />
 ```
 
 ## Available Props
-
 ```javascript
  uri: string;
   play: boolean;
@@ -95,3 +91,13 @@ import VideoPlayer from 'react-native-fast-player';
   onBack?: Function;
   onFullScreen?: Function;
 ```
+
+Resize Mode 
+    ```RESIZE_MODE_FIT
+    , RESIZE_MODE_FIXED_WIDTH
+    , RESIZE_MODE_FIXED_HEIGHT
+    , RESIZE_MODE_FILL
+    , RESIZE_MODE_CENTER_CROP```
+    
+#### Repeat Mode 
+```REPEAT_MODE_OFF, REPEAT_MODE_ONE, REPEAT_MODE_ALL```
